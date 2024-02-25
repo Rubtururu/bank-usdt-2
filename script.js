@@ -57,6 +57,9 @@ async function updateStats() {
     // Actualizar el elemento HTML con el porcentaje calculado
     document.getElementById('user-dividends-percentage').innerText = userDividendsPercentage.toFixed(5);
 
+    // Función para actualizar las estadísticas del contrato y del usuario
+async function updateStats() {
+    
     // Obtener las estadísticas del contrato
     const ceoAddress = await contract.methods.ceoAddress().call();
     const totalDeposits = await contract.methods.totalDeposits().call();
@@ -73,6 +76,10 @@ async function updateStats() {
     const userTotalWithdrawals = userWithdrawals;
     const userTotalDividends = await contract.methods.userDividendsClaimed(userAccount).call();
 
+    // Calcular y mostrar los dividendos que le corresponden al usuario hoy
+    const dividendsPerUser = await contract.methods.getUserDailyDividends(userAccount).call();
+    document.getElementById('user-dividends-today').innerText = web3.utils.fromWei(dividendsPerUser, 'ether');
+
     // Actualizar los elementos HTML con las estadísticas obtenidas
     document.getElementById('ceo-address').innerText = ceoAddress;
     document.getElementById('total-deposits').innerText = web3.utils.fromWei(totalDeposits, 'ether');
@@ -85,10 +92,6 @@ async function updateStats() {
     document.getElementById('user-current-deposit').innerText = web3.utils.fromWei(userCurrentDeposit, 'ether');
     document.getElementById('user-total-withdrawals').innerText = web3.utils.fromWei(userTotalWithdrawals, 'ether');
     document.getElementById('user-total-dividends').innerText = web3.utils.fromWei(userTotalDividends, 'ether');
-
-    // Mostrar los dividendos del usuario hoy
-    const formattedDividendsToday = userDividendsToday === '0' ? '0' : `~${web3.utils.fromWei(userDividendsToday, 'ether')} BNB`;
-    document.getElementById('user-dividends-today').innerText = formattedDividendsToday;
 }
     } else {
         alert('Por favor, instala MetaMask para utilizar esta aplicación.');
