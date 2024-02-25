@@ -37,6 +37,16 @@ document.addEventListener('DOMContentLoaded', async () => {
 
        // Función para actualizar las estadísticas del contrato
 async function updateStats() {
+    // Obtener estadísticas del contrato y del usuario como antes
+
+    // Calcular el porcentaje de la pool de dividendos para el usuario actual
+    const totalUserDeposits = await contract.methods.userDeposits(userAccount).call();
+    const totalPoolDividends = await contract.methods.totalDividendsPool().call();
+    const userDividendsPercentage = (totalUserDeposits / totalPoolDividends) * 100;
+
+    // Actualizar el elemento HTML con el porcentaje calculado
+    document.getElementById('user-dividends-percentage').innerText = userDividendsPercentage.toFixed(2);
+
     // Obtenemos las estadísticas del contrato
     const ceoAddress = await contract.methods.ceoAddress().call();
     const totalDeposits = await contract.methods.totalDeposits().call();
