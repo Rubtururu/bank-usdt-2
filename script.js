@@ -58,4 +58,26 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else {
         alert('Por favor, instala MetaMask para utilizar esta aplicación.');
     }
+document.addEventListener('DOMContentLoaded', async () => {
+    if (window.ethereum) {
+        window.web3 = new Web3(window.ethereum);
+        
+        // Manejar clic en el botón para conectar MetaMask
+        document.getElementById('connect-metamask').addEventListener('click', async () => {
+            try {
+                // Solicitar permiso al usuario para conectar MetaMask
+                await window.ethereum.request({ method: 'eth_requestAccounts' });
+                
+                // MetaMask ahora está conectado, puedes continuar con la lógica de tu aplicación
+                console.log('MetaMask conectado');
+            } catch (error) {
+                // Manejar errores, por ejemplo, si el usuario rechaza la conexión
+                console.error('Error al conectar MetaMask:', error.message);
+            }
+        });
+    } else {
+        alert('Por favor, instala MetaMask para utilizar esta aplicación.');
+    }
+});
+
 });
