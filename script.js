@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('withdraw-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const amount = document.getElementById('withdraw-amount').value;
-            await contract.methods.withdraw().send({ from: userAccount });
+            await contract.methods.withdraw(web3.utils.toWei(amount, 'ether')).send({ from: userAccount });
             updateStats();
             document.getElementById('withdraw-amount').value = ''; // Limpiar el campo después del retiro
         });
@@ -35,26 +35,26 @@ document.addEventListener('DOMContentLoaded', async () => {
             updateStats();
         });
 
-        // Función para actualizar las estadísticas del contrato
-        async function updateStats() {
-            const ceoAddress = await contract.methods.ceoAddress().call();
-            const totalDeposits = await contract.methods.totalDeposits().call();
-            const totalTreasuryPool = await contract.methods.totalTreasuryPool().call();
-            const totalDividendsPool = await contract.methods.totalDividendsPool().call();
-            const lastDividendsPaymentTime = await contract.methods.lastDividendsPaymentTime().call();
-            const userDeposits = await contract.methods.userDeposits(userAccount).call();
-            const userWithdrawals = await contract.methods.userWithdrawals(userAccount).call();
-            const contractBalance = await contract.methods.getContractBalance().call();
+       // Función para actualizar las estadísticas del contrato
+async function updateStats() {
+    const ceoAddress = await contract.methods.ceoAddress().call();
+    const totalDeposits = await contract.methods.totalDeposits().call();
+    const totalTreasuryPool = await contract.methods.totalTreasuryPool().call();
+    const totalDividendsPool = await contract.methods.totalDividendsPool().call();
+    const lastDividendsPaymentTime = await contract.methods.lastDividendsPaymentTime().call();
+    const userDeposits = await contract.methods.userDeposits(userAccount).call();
+    const userWithdrawals = await contract.methods.userWithdrawals(userAccount).call();
+    const contractBalance = await contract.methods.getContractBalance().call();
 
-            document.getElementById('ceo-address').innerText = ceoAddress;
-            document.getElementById('total-deposits').innerText = web3.utils.fromWei(totalDeposits, 'ether');
-            document.getElementById('total-treasury-pool').innerText = web3.utils.fromWei(totalTreasuryPool, 'ether');
-            document.getElementById('total-dividends-pool').innerText = web3.utils.fromWei(totalDividendsPool, 'ether');
-            document.getElementById('last-dividends-payment-time').innerText = new Date(lastDividendsPaymentTime * 1000).toLocaleString();
-            document.getElementById('user-deposits').innerText = web3.utils.fromWei(userDeposits, 'ether');
-            document.getElementById('user-withdrawals').innerText = web3.utils.fromWei(userWithdrawals, 'ether');
-            document.getElementById('contract-balance').innerText = web3.utils.fromWei(contractBalance, 'ether');
-        }
+    document.getElementById('ceo-address').innerText = ceoAddress;
+    document.getElementById('total-deposits').innerText = web3.utils.fromWei(totalDeposits, 'ether');
+    document.getElementById('total-treasury-pool').innerText = web3.utils.fromWei(totalTreasuryPool, 'ether');
+    document.getElementById('total-dividends-pool').innerText = web3.utils.fromWei(totalDividendsPool, 'ether');
+    document.getElementById('last-dividends-payment-time').innerText = new Date(lastDividendsPaymentTime * 1000).toLocaleString();
+    document.getElementById('user-deposits').innerText = web3.utils.fromWei(userDeposits, 'ether');
+    document.getElementById('user-withdrawals').innerText = web3.utils.fromWei(userWithdrawals, 'ether');
+    document.getElementById('contract-balance').innerText = web3.utils.fromWei(contractBalance, 'ether');
+}
     } else {
         alert('Por favor, instala MetaMask para utilizar esta aplicación.');
     }
