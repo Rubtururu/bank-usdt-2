@@ -1,0 +1,87 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=-width, initial-scale=1.0" />
+    <title>Pool de Tesoro y Dividendos</title>
+    <link rel="" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">      <h1>Pool de Tesoro y Dividendos</h1>
+      <p>Deposita USDT y gana participaciones en el pool de tesoro y dividendos.</p>
+      <div class="card">
+        <div class="card__content">
+          <h2>Estadísticas del Contrato</h2>
+          <div class="stat">
+            <p>Pool de Tesoro:</p>
+            <p class="highlight"><span id="treasure-pool">--</span> USDT</p>
+          </div>
+          <div class="stat">
+            <p>Pool de Dividendos:</p>
+            <p class="highlight"><span id="dividends-pool">--</span> USDT</p>
+          </div>
+          <div class="stat">
+            <p>Última Distribución de Dividendos:</p>
+            <p class="highlight"><span id="last-distribution">--</span></p>
+          </div>
+          <div class="stat">
+            <p>Dividendos Diarios:</p>
+            <p class="highlight"><span id="daily-dividends">--</span> USDT</p>
+          </div>
+          <div class="stat countdown">
+            <p>Próxima Distribución de Dividendos en:</p>
+            <div id="countdown-timer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card__content">
+          <h2>Tu Cuenta</h2>
+          <div class="stat">
+            <p>USDT Depositados:</p>
+            <p class="highlight"><span id="your-deposit">--</span></p>
+          </div>
+          <div class="stat">
+            <p>Dividendos Ganados:</p>
+            <p class="highlight"><span id="your-dividends-earned">--</span> USDT</p>
+          </div>
+          <div class="stat">
+            <p>Dividendos Diarios:</p>
+            <p class="highlight"><span id="your-dividends-daily">--</span> USDT</p>
+          </div>
+          <div class="stat">
+            <p>Dividendos Acumulados:</p>
+            <p class="highlight"><span id="your-dividends-accumulated">--</span> USDT</p>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card__content">
+          <h2>Depositar</h2>
+          <form id="deposit-form">
+            <input type="number" id="deposit-amount" placeholder="Cantidad de USDT a depositar" />
+            <button type="submit">Depositar</button>
+          </form>
+          <p id="deposit-result"></p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card__content">
+          <h2>Retirar</h2>
+          <form id="withdraw-form">
+            <input type="number" id="withdraw-amount" placeholder="Cantidad de USDT a retirar" />
+            <button type="submit">Retirar</button>
+          </form>
+          <p id="withdraw-result"></p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card__content">
+          <h2>Reclamar Dividendos</h2>
+          <button id="claim-dividends">Reclamar Dividendos</button>
+          <p id="dividends-result"></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
