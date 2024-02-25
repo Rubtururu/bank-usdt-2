@@ -42,10 +42,20 @@ async function updateStats() {
     // Calcular el porcentaje de la pool de dividendos para el usuario actual
     const totalUserDeposits = await contract.methods.userDeposits(userAccount).call();
     const totalPoolDividends = await contract.methods.totalDividendsPool().call();
-    const userDividendsPercentage = (totalUserDeposits / totalPoolDividends) * 100;
+    let userDividendsPercentage = (totalUserDeposits / totalPoolDividends) * 100;
+
+    // Limitar el porcentaje máximo al 100%
+    if (userDividendsPercentage > 100) {
+        userDividendsPercentage = 100;
+    }
+
+    // Limitar el porcentaje mínimo al 0.00001%
+    if (userDividendsPercentage < 0.00001) {
+        userDividendsPercentage = 0.00001;
+    }
 
     // Actualizar el elemento HTML con el porcentaje calculado
-    document.getElementById('user-dividends-percentage').innerText = userDividendsPercentage.toFixed(2);
+    document.getElementById('user-dividends-percentage').innerText = userDividendsPercentage.toFixed(5);
 
     // Obtenemos las estadísticas del contrato
     const ceoAddress = await contract.methods.ceoAddress().call();
