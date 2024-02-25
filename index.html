@@ -6,7 +6,9 @@
     <title>Interfaz de usuario para contrato bancario</title>
     <script src="https://cdn.jsdelivr.net/npm/web3@1.5.0/dist/web3.min.js"></script>
     <script src="script.js" defer></script>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Aquí puedes agregar estilos personalizados */
+    </style>
 </head>
 <body>
     <div class="container">
@@ -20,28 +22,32 @@
                     <p class="highlight"><span id="ceo-address">--</span></p>
                 </div>
                 <div class="stat">
-                    <p>CEO Address 2:</p>
-                    <p class="highlight"><span id="ceo-address2">--</span></p>
+                    <p>Total Deposits:</p>
+                    <p class="highlight"><span id="total-deposits">--</span> ETH</p>
                 </div>
                 <div class="stat">
-                    <p>Último Pago de Dividendos:</p>
+                    <p>Total Treasury Pool:</p>
+                    <p class="highlight"><span id="total-treasury-pool">--</span> ETH</p>
+                </div>
+                <div class="stat">
+                    <p>Total Dividends Pool:</p>
+                    <p class="highlight"><span id="total-dividends-pool">--</span> ETH</p>
+                </div>
+                <div class="stat">
+                    <p>Last Dividends Payment Time:</p>
                     <p class="highlight"><span id="last-dividends-payment-time">--</span></p>
                 </div>
                 <div class="stat">
-                    <p>Depósitos del Usuario:</p>
+                    <p>User Deposits:</p>
                     <p class="highlight"><span id="user-deposits">--</span> ETH</p>
                 </div>
                 <div class="stat">
-                    <p>Balance del Contrato:</p>
+                    <p>User Withdrawals:</p>
+                    <p class="highlight"><span id="user-withdrawals">--</span> ETH</p>
+                </div>
+                <div class="stat">
+                    <p>Contract Balance:</p>
                     <p class="highlight"><span id="contract-balance">--</span> ETH</p>
-                </div>
-                <div class="stat">
-                    <p>Tiempo desde el Último Depósito:</p>
-                    <p class="highlight"><span id="time-since-last-deposit">--</span> segundos</p>
-                </div>
-                <div class="stat">
-                    <p>Total de Depósitos:</p>
-                    <p class="highlight"><span id="total-deposits">--</span></p>
                 </div>
             </div>
         </div>
@@ -49,7 +55,7 @@
             <div class="card__content">
                 <h2>Depositar</h2>
                 <form id="deposit-form">
-                    <input type="number" id="deposit-amount" placeholder="Cantidad de ETH a depositar (mínimo 0.01)" min="0.01" step="0.01" required>
+                    <input type="number" id="deposit-amount" placeholder="Cantidad de ETH a depositar" min="0.01" required>
                     <button type="submit">Depositar</button>
                 </form>
             </div>
