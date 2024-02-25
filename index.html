@@ -1,87 +1,41 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=-width, initial-scale=1.0" />
-    <title>Pool de Tesoro y Dividendos</title>
-    <link rel="" href="styles.css" />
+    <title>Treasure Pool</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
   <body>
-    <div class="container">      <h1>Pool de Tesoro y Dividendos</h1>
-      <p>Deposita USDT y gana participaciones en el pool de tesoro y dividendos.</p>
-      <div class="card">
-        <div class="card__content">
-          <h2>Estadísticas del Contrato</h2>
-          <div class="stat">
-            <p>Pool de Tesoro:</p>
-            <p class="highlight"><span id="treasure-pool">--</span> USDT</p>
-          </div>
-          <div class="stat">
-            <p>Pool de Dividendos:</p>
-            <p class="highlight"><span id="dividends-pool">--</span> USDT</p>
-          </div>
-          <div class="stat">
-            <p>Última Distribución de Dividendos:</p>
-            <p class="highlight"><span id="last-distribution">--</span></p>
-          </div>
-          <div class="stat">
-            <p>Dividendos Diarios:</p>
-            <p class="highlight"><span id="daily-dividends">--</span> USDT</p>
-          </div>
-          <div class="stat countdown">
-            <p>Próxima Distribución de Dividendos en:</p>
-            <div id="countdown-timer"></div>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card__content">
-          <h2>Tu Cuenta</h2>
-          <div class="stat">
-            <p>USDT Depositados:</p>
-            <p class="highlight"><span id="your-deposit">--</span></p>
-          </div>
-          <div class="stat">
-            <p>Dividendos Ganados:</p>
-            <p class="highlight"><span id="your-dividends-earned">--</span> USDT</p>
-          </div>
-          <div class="stat">
-            <p>Dividendos Diarios:</p>
-            <p class="highlight"><span id="your-dividends-daily">--</span> USDT</p>
-          </div>
-          <div class="stat">
-            <p>Dividendos Acumulados:</p>
-            <p class="highlight"><span id="your-dividends-accumulated">--</span> USDT</p>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card__content">
-          <h2>Depositar</h2>
-          <form id="deposit-form">
-            <input type="number" id="deposit-amount" placeholder="Cantidad de USDT a depositar" />
-            <button type="submit">Depositar</button>
-          </form>
-          <p id="deposit-result"></p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card__content">
-          <h2>Retirar</h2>
-          <form id="withdraw-form">
-            <input type="number" id="withdraw-amount" placeholder="Cantidad de USDT a retirar" />
-            <button type="submit">Retirar</button>
-          </form>
-          <p id="withdraw-result"></p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card__content">
-          <h2>Reclamar Dividendos</h2>
-          <button id="claim-dividends">Reclamar Dividendos</button>
-          <p id="dividends-result"></p>
-        </div>
-      </div>
-    </div>
+    <h1>Treasure Pool</h1>
+    <p>
+      <label for="depositAmount">Deposit amount (in USDT): </label>
+      <input type="number" id="depositAmount" />
+      <button id="depositButton">Deposit</button>
+    </p>
+    <p>
+      <label for="withdrawAmount">Withdraw amount (in USDT): </label>
+      <input type="number" id="withdrawAmount" />
+      <button id="withdrawButton">Withdraw</button>
+    </p>
+    <p>
+      <button id="claimDividendsButton">Claim Dividends</button>
+    </p>
+    <p>
+      <label for="balance">Your balance (in USDT): </label>
+      <span id="balance"></span>
+    </p>
+    <p>
+      <label for="totalDeposited">Total deposited (in USDT): </label>
+      <span id="totalDeposited"></span>
+    </p>
+    <p>
+      <label for="totalDividends">Total dividends (in USDT): </label>
+      <span id="totalDividends"></span>
+    </p>
+    <p>
+      <label for="dividends">Your dividends (in USDT): </label>
+      <span id="dividends"></span>
+    </p>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.3.0/dist/web3.min.js"></script>
+    <script src="TreasurePool.js"></script>
   </body>
 </html>
