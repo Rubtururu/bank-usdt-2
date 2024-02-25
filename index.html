@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interfaz de usuario para contrato bancario</title>
-    <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/web3@1.5.0/dist/web3.min.js"></script>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -17,31 +17,32 @@
                 <h2>Estadísticas del Contrato</h2>
                 <div class="stat">
                     <p>CEO Address:</p>
-                    <p class="highlight" id="ceo-address">--</p>
+                    <p class="highlight"><span id="ceo-address">--</span></p>
                 </div>
                 <div class="stat">
                     <p>CEO Address 2:</p>
-                    <p class="highlight" id="ceo-address2">--</p>
+                    <p class="highlight"><span id="ceo-address2">--</span></p>
                 </div>
                 <div class="stat">
                     <p>Último Pago de Dividendos:</p>
-                    <p class="highlight" id="last-dividends-payment-time">--</p>
+                    <p class="highlight"><span id="last-dividends-payment-time">--</span></p>
                 </div>
                 <div class="stat">
-                    <p>Pool de Dividendos:</p>
-                    <p class="highlight" id="dividends-pool">--</p>
+                    <p>Depósitos del Usuario:</p>
+                    <p class="highlight"><span id="user-deposits">--</span> ETH</p>
+                </div>
+                <!-- Nuevas estadísticas -->
+                <div class="stat">
+                    <p>Saldo del Contrato:</p>
+                    <p class="highlight"><span id="contract-balance">--</span> ETH</p>
                 </div>
                 <div class="stat">
-                    <p>Tiempo desde Último Pago de Dividendos:</p>
-                    <p class="highlight" id="time-since-last-dividends">--</p>
+                    <p>Tiempo transcurrido desde el último depósito:</p>
+                    <p class="highlight"><span id="time-since-last-deposit">--</span> segundos</p>
                 </div>
                 <div class="stat">
-                    <p>Total de Depósitos:</p>
-                    <p class="highlight" id="total-deposits">--</p>
-                </div>
-                <div class="stat">
-                    <p>Balance del Contrato:</p>
-                    <p class="highlight" id="contract-balance">--</p>
+                    <p>Número total de depósitos:</p>
+                    <p class="highlight"><span id="total-deposits">--</span></p>
                 </div>
             </div>
         </div>
