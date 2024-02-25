@@ -4,78 +4,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interfaz de usuario para contrato bancario</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Variables */
+        :root {
+            --primary-color: #354D5F;
+            --secondary-color: #ffc107;
+            --font-family: 'Roboto', sans-serif;
+        }
+
+        /* Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Body */
+        body {
+            font-family: var(--font-family);
+            background-color: #1d1f21;
+            color: #f5f5f5;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 1rem;
+        }
+
+        /* Card */
+        .card {
+            background-color: #212529;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .card__content {
+            padding: 1.5rem;
+        }
+
+        /* Headings */
+        h1,
+        h2 {
+            color: #f5f5f5;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        /* Paragraph */
+        p {
+            font-size: 1rem;
+            color: #adb5bd;
+            margin-bottom: 1rem;
+        }
+
+        /* Highlight */
+        .highlight {
+            color: #ffc107;
+            font-weight: bold;
+        }
+
+        /* Stat */
+        .stat {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #343a40;
+        }
+
+        .countdown {
+            background-color: #343a40;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        #countdown-timer {
+            font-size: 1.2rem;
+            color: #ffc107;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Input and Button */
+        input,
+        button {
+            background-color: #343a40;
+            border: none;
+            border-radius: 5px;
+            padding: 0.5rem;
+            color: #f5f5f5;
+            cursor: pointer;
+        }
+
+        input {
+            width: 100%;
+        }
+
+        button {
+            background-color: var(--secondary-color);
+            color: #1d1f21;
+            margin-top: 1rem;
+        }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/web3@1.5.0/dist/web3.min.js"></script>
     <script src="script.js" defer></script>
-    <style>
-        /* Aquí puedes agregar estilos personalizados */
-    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Interfaz de usuario para contrato bancario</h1>
-        <p>Conecta MetaMask para interactuar con el contrato inteligente.</p>
-        <div class="card">
-            <div class="card__content">
-                <h2>Estadísticas del Contrato</h2>
-                <div class="stat">
-                    <p>CEO Address:</p>
-                    <p class="highlight"><span id="ceo-address">--</span></p>
-                </div>
-                <div class="stat">
-                    <p>Total Deposits:</p>
-                    <p class="highlight"><span id="total-deposits">--</span> ETH</p>
-                </div>
-                <div class="stat">
-                    <p>Total Treasury Pool:</p>
-                    <p class="highlight"><span id="total-treasury-pool">--</span> ETH</p>
-                </div>
-                <div class="stat">
-                    <p>Total Dividends Pool:</p>
-                    <p class="highlight"><span id="total-dividends-pool">--</span> ETH</p>
-                </div>
-                <div class="stat">
-                    <p>Last Dividends Payment Time:</p>
-                    <p class="highlight"><span id="last-dividends-payment-time">--</span></p>
-                </div>
-                <div class="stat">
-                    <p>User Deposits:</p>
-                    <p class="highlight"><span id="user-deposits">--</span> ETH</p>
-                </div>
-                <div class="stat">
-                    <p>User Withdrawals:</p>
-                    <p class="highlight"><span id="user-withdrawals">--</span> ETH</p>
-                </div>
-                <div class="stat">
-                    <p>Contract Balance:</p>
-                    <p class="highlight"><span id="contract-balance">--</span> ETH</p>
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__content">
-                <h2>Depositar</h2>
-                <form id="deposit-form">
-                    <input type="number" id="deposit-amount" placeholder="Cantidad de ETH a depositar" min="0.01" required>
-                    <button type="submit">Depositar</button>
-                </form>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__content">
-                <h2>Retirar</h2>
-                <form id="withdraw-form">
-                    <input type="number" id="withdraw-amount" placeholder="Cantidad de ETH a retirar" required>
-                    <button type="submit">Retirar</button>
-                </form>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__content">
-                <h2>Reclamar Dividendos</h2>
-                <button id="claim-dividends">Reclamar Dividendos</button>
-            </div>
-        </div>
+        <!-- Tu contenido HTML aquí -->
     </div>
 </body>
 </html>
