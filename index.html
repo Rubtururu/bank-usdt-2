@@ -39,14 +39,6 @@
                     <p class="highlight"><span id="last-dividends-payment-time">--</span></p>
                 </div>
                 <div class="stat">
-                    <p>User Deposits:</p>
-                    <p class="highlight"><span id="user-deposits">--</span> BNB</p>
-                </div>
-                <div class="stat">
-                    <p>User Withdrawals:</p>
-                    <p class="highlight"><span id="user-withdrawals">--</span> BNB</p>
-                </div>
-                <div class="stat">
                     <p>Contract Balance:</p>
                     <p class="highlight"><span id="contract-balance">--</span> BNB</p>
                 </div>
@@ -54,39 +46,25 @@
         </div>
         <div class="card">
             <div class="card__content">
-                <div class="card">
-    <div class="card__content">
-        <h2>Estadísticas del Usuario</h2>
-        <div class="user-stat">
-            <p>Dividendos Hoy:</p>
-            <p class="highlight"><span id="user-dividends-today">--</span> BNB</p>
+                <h2>Estadísticas del Usuario</h2>
+                <div class="user-stat">
+                    <p>Dividendos Hoy:</p>
+                    <p class="highlight"><span id="user-dividends-today">--</span> BNB</p>
+                </div>
+                <div class="stat">
+                    <p>User Deposits:</p>
+                    <p class="highlight"><span id="user-deposits">--</span> BNB</p>
+                </div>
+                <div class="stat">
+                    <p>User Withdrawals:</p>
+                    <p class="highlight"><span id="user-withdrawals">--</span> BNB</p>
+                </div>
+                <div class="user-stat">
+                    <p>Dividendos Totales:</p>
+                    <p class="highlight"><span id="user-total-dividends">--</span> BNB</p>
+                </div>
+            </div>
         </div>
-        <div class="user-stat">
-            <p>Depósito Actual:</p>
-            <p class="highlight"><span id="user-current-deposit">--</span> BNB</p>
-        </div>
-        <div class="user-stat">
-            <p>Retiro Total:</p>
-            <p class="highlight"><span id="user-total-withdrawals">--</span> BNB</p>
-        </div>
-        <div class="user-stat">
-            <p>Depósitos Realizados:</p>
-            <p class="highlight"><span id="user-total-deposits">--</span> BNB</p>
-        </div>
-        <div class="user-stat">
-            <p>Retiros Realizados:</p>
-            <p class="highlight"><span id="user-total-withdrawals">--</span> BNB</p>
-        </div>
-        <div class="user-stat">
-            <p>% de la Pool de Dividendos:</p>
-            <p class="highlight"><span id="user-dividends-percentage">--</span>%</p>
-        </div>
-        <div class="user-stat">
-            <p>Dividendos Totales:</p>
-            <p class="highlight"><span id="user-total-dividends">--</span> BNB</p>
-        </div>
-    </div>
-</div>
         <div class="card">
             <div class="card__content">
                 <h2>Próximo Pago de Dividendos</h2>
@@ -106,7 +84,7 @@
             <div class="card__content">
                 <h2>Retirar</h2>
                 <form id="withdraw-form">
-                    <input type="number" id="withdraw-amount" placeholder="Cantidad de BNB a retirar" min="0.001" step="0.001" required>
+                    <input type="number" id="withdraw-amount" placeholder="Cantidad de BNB a retirar" min="0.01" step="0.01" required>
                     <button type="submit">Retirar</button>
                 </form>
             </div>
