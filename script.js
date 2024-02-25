@@ -37,11 +37,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Función para actualizar las estadísticas del contrato
         async function updateStats() {
-            const treasurePool = await contract.methods.getTreasurePool().call();
-            const dividendsPool = await contract.methods.getDividendsPool().call();
-            const lastDistribution = await contract.methods.getLastDividendsPaymentTime().call();
+            const treasurePool = await contract.methods.treasury().call();
+            const dividendsPool = await contract.methods.dividendsPool().call();
+            const lastDistribution = await contract.methods.lastDividendsDistribution().call();
             const dailyDividends = await contract.methods.getDailyDividends().call();
-            const userDeposit = await contract.methods.deposits(userAccount).call();
+            const userDeposit = await contract.methods.userDeposits(userAccount).call();
             const userDividendsEarned = await contract.methods.calculateDividends(userAccount).call();
             const userDailyDividends = await contract.methods.calculateDailyDividends(userAccount).call();
             const userAccumulatedDividends = await contract.methods.calculateAccumulatedDividends(userAccount).call();
