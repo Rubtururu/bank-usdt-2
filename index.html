@@ -4,21 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=-width, initial-scale=1.0" />
     <title>Pool de Tesoro y Dividendos</title>
-    <link rel="" href="styles.css" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="container">      <h1>Pool de Tesoro y Dividendos</h1>
-      <p>Deposita USDT y gana participaciones en el pool de tesoro y dividendos.</p>
+    <div class="container">      
+      <h1>Pool de Tesoro y Dividendos</h1>
+      <p>Deposita BNB y gana participaciones en el pool de tesoro y dividendos.</p>
       <div class="card">
         <div class="card__content">
           <h2>Estadísticas del Contrato</h2>
           <div class="stat">
             <p>Pool de Tesoro:</p>
-            <p class="highlight"><span id="treasure-pool">--</span> USDT</p>
+            <p class="highlight"><span id="treasure-pool">--</span> BNB</p>
           </div>
           <div class="stat">
             <p>Pool de Dividendos:</p>
-            <p class="highlight"><span id="dividends-pool">--</span> USDT</p>
+            <p class="highlight"><span id="dividends-pool">--</span> BNB</p>
           </div>
           <div class="stat">
             <p>Última Distribución de Dividendos:</p>
@@ -26,7 +27,7 @@
           </div>
           <div class="stat">
             <p>Dividendos Diarios:</p>
-            <p class="highlight"><span id="daily-dividends">--</span> USDT</p>
+            <p class="highlight"><span id="daily-dividends">--</span> BNB</p>
           </div>
           <div class="stat countdown">
             <p>Próxima Distribución de Dividendos en:</p>
@@ -38,20 +39,20 @@
         <div class="card__content">
           <h2>Tu Cuenta</h2>
           <div class="stat">
-            <p>USDT Depositados:</p>
+            <p>BNB Depositados:</p>
             <p class="highlight"><span id="your-deposit">--</span></p>
           </div>
           <div class="stat">
             <p>Dividendos Ganados:</p>
-            <p class="highlight"><span id="your-dividends-earned">--</span> USDT</p>
+            <p class="highlight"><span id="your-dividends-earned">--</span> BNB</p>
           </div>
           <div class="stat">
             <p>Dividendos Diarios:</p>
-            <p class="highlight"><span id="your-dividends-daily">--</span> USDT</p>
+            <p class="highlight"><span id="your-dividends-daily">--</span> BNB</p>
           </div>
           <div class="stat">
             <p>Dividendos Acumulados:</p>
-            <p class="highlight"><span id="your-dividends-accumulated">--</span> USDT</p>
+            <p class="highlight"><span id="your-dividends-accumulated">--</span> BNB</p>
           </div>
         </div>
       </div>
@@ -59,7 +60,7 @@
         <div class="card__content">
           <h2>Depositar</h2>
           <form id="deposit-form">
-            <input type="number" id="deposit-amount" placeholder="Cantidad de USDT a depositar" />
+            <input type="number" id="deposit-amount" placeholder="Cantidad de BNB a depositar" />
             <button type="submit">Depositar</button>
           </form>
           <p id="deposit-result"></p>
@@ -69,7 +70,7 @@
         <div class="card__content">
           <h2>Retirar</h2>
           <form id="withdraw-form">
-            <input type="number" id="withdraw-amount" placeholder="Cantidad de USDT a retirar" />
+            <input type="number" id="withdraw-amount" placeholder="Cantidad de BNB a retirar" />
             <button type="submit">Retirar</button>
           </form>
           <p id="withdraw-result"></p>
@@ -83,5 +84,6 @@
         </div>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
