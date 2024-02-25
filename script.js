@@ -37,23 +37,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Función para actualizar las estadísticas del contrato
         async function updateStats() {
-            const treasurePool = await contract.methods.treasury().call();
-            const dividendsPool = await contract.methods.dividendsPool().call();
-            const lastDistribution = await contract.methods.lastDividendsDistribution().call();
-            const dailyDividends = await contract.methods.getDailyDividends().call();
-            const userDeposit = await contract.methods.userDeposits(userAccount).call();
-            const userDividendsEarned = await contract.methods.calculateDividends(userAccount).call();
-            const userDailyDividends = await contract.methods.calculateDailyDividends(userAccount).call();
-            const userAccumulatedDividends = await contract.methods.calculateAccumulatedDividends(userAccount).call();
+            const ceoAddress = await contract.methods.ceoAddress().call();
+            const ceoAddress2 = await contract.methods.ceoAddress2().call();
+            const lastDividendsPaymentTime = await contract.methods.lastDividendsPaymentTime().call();
+            const deposits = await contract.methods.deposits(userAccount).call();
 
-            document.getElementById('treasure-pool').innerText = web3.utils.fromWei(treasurePool, 'ether');
-            document.getElementById('dividends-pool').innerText = web3.utils.fromWei(dividendsPool, 'ether');
-            document.getElementById('last-distribution').innerText = new Date(lastDistribution * 1000).toLocaleString();
-            document.getElementById('daily-dividends').innerText = web3.utils.fromWei(dailyDividends, 'ether');
-            document.getElementById('your-deposit').innerText = web3.utils.fromWei(userDeposit, 'ether');
-            document.getElementById('your-dividends-earned').innerText = web3.utils.fromWei(userDividendsEarned, 'ether');
-            document.getElementById('your-dividends-daily').innerText = web3.utils.fromWei(userDailyDividends, 'ether');
-            document.getElementById('your-dividends-accumulated').innerText = web3.utils.fromWei(userAccumulatedDividends, 'ether');
+            document.getElementById('ceo-address').innerText = ceoAddress;
+            document.getElementById('ceo-address2').innerText = ceoAddress2;
+            document.getElementById('last-dividends-payment-time').innerText = new Date(lastDividendsPaymentTime * 1000).toLocaleString();
+            document.getElementById('user-deposits').innerText = web3.utils.fromWei(deposits, 'ether');
         }
     } else {
         alert('Por favor, instala MetaMask para utilizar esta aplicación.');
