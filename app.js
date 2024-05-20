@@ -47,7 +47,8 @@ async function withdraw() {
             getUserInfo();
         })
         .on('error', (error) => {
-            console.error('Transaction failed with error: ', error        });
+            console.error('Transaction failed with error: ', error);
+        });
 }
 
 async function claimDividends() {
