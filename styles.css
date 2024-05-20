@@ -1,53 +1,42 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
 }
 
 .container {
     max-width: 800px;
-    margin: 50px auto;
+    margin: 0 auto;
     padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1, h2 {
+h1 {
     text-align: center;
-    color: #333;
 }
 
-.section {
-    margin-bottom: 20px;
-}
-
-input[type="number"] {
-    width: calc(100% - 22px);
+.stats, .user-stats, .actions {
+    margin-top: 20px;
+    border: 1px solid #ccc;
     padding: 10px;
-    margin-bottom: 10px;
 }
 
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
+.stats div, .user-stats div, .actions button {
+    margin-top: 10px;
+}
+
+.actions input[type="number"] {
+    width: 150px;
+}
+
+.actions button {
     cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
 }
 
-button:hover {
+.actions button:hover {
     background-color: #0056b3;
-}
-
-p {
-    text-align: center;
-    color: #333;
-}
-
-#contractStats p, #userInfo p {
-    text-align: left;
-    color: #333;
-    margin: 5px 0;
 }
