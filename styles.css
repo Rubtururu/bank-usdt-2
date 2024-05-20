@@ -43,4 +43,11 @@ button:hover {
 
 p {
     text-align: center;
+    color: #333;
+}
+
+#contractStats p, #userInfo p {
+    text-align: left;
+    color: #333;
+    margin: 5px 0;
 }
