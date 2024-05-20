@@ -3,55 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BNB Smart Contract Interface</title>
+    <title>BNB Smart Contract</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>BNB Smart Contract Interface</h1>
-        
-        <div class="section">
-            <h2>Deposit BNB</h2>
-            <input type="number" id="depositAmount" placeholder="Amount in BNB">
+        <h1>BNB Smart Contract</h1>
+        <div class="stats">
+            <div id="totalDeposited">Total Deposited: Loading...</div>
+            <div id="totalWithdrawn">Total Withdrawn: Loading...</div>
+            <div id="totalDividendsPaid">Total Dividends Paid: Loading...</div>
+            <div id="treasuryPool">Treasury Pool: Loading...</div>
+            <div id="dividendPool">Dividend Pool: Loading...</div>
+        </div>
+        <div class="user-stats">
+            <div id="userDeposit">Deposit: Loading...</div>
+            <div id="userWithdrawn">Withdrawn: Loading...</div>
+            <div id="userDividendsClaimed">Dividends Claimed: Loading...</div>
+            <div id="userLastDividendClaim">Last Dividend Claim: Loading...</div>
+            <div id="dividendTimer">Next Dividend in: Loading...</div>
+        </div>
+        <div class="actions">
+            <input type="number" id="depositAmount" placeholder="Amount to Deposit (BNB)">
             <button onclick="deposit()">Deposit</button>
-        </div>
-        
-        <div class="section">
-            <h2>Withdraw BNB</h2>
-            <input type="number" id="withdrawAmount" placeholder="Amount in BNB">
+            <input type="number" id="withdrawAmount" placeholder="Amount to Withdraw (BNB)">
             <button onclick="withdraw()">Withdraw</button>
-        </div>
-        
-        <div class="section">
-            <h2>Claim Dividends</h2>
             <button onclick="claimDividends()">Claim Dividends</button>
         </div>
-        
-        <div class="section">
-            <h2>User Info</h2>
-            <button onclick="getUserInfo()">Get User Info</button>
-            <div id="userInfo">
-                <p id="userDeposit"></p>
-                <p id="userWithdrawn"></p>
-                <p id="userDividendsClaimed"></p>
-                <p id="userLastDividendClaim"></p>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2>Contract Stats</h2>
-            <button onclick="getContractStats()">Get Contract Stats</button>
-            <div id="contractStats">
-                <p id="totalDeposited"></p>
-                <p id="totalWithdrawn"></p>
-                <p id="totalDividendsPaid"></p>
-                <p id="treasuryPool"></p>
-                <p id="dividendPool"></p>
-            </div>
-        </div>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
-    <script src="app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.6/web3.min.js"></script>
+    <script src="contract.js"></script>
 </body>
 </html>
