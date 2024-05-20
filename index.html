@@ -3,94 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interfaz de usuario para contrato bancario</title>
+    <title>BNB Smart Contract Interface</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.0/dist/web3.min.js"></script>
-    <script src="script.js" defer></script>
-    <style>
-        /* Aquí puedes agregar estilos personalizados */
-    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Interfaz de usuario para contrato bancario</h1>
-        <p>Conecta MetaMask para interactuar con el contrato inteligente.</p>
-        <div class="card">
-            <div class="card__content">
-                <h2>Estadísticas del Contrato</h2>
-                <div class="stat">
-                    <p>Total Deposits:</p>
-                    <p class="highlight"><span id="total-deposits">--</span> BNB</p>
-                </div>
-                <div class="stat">
-                    <p>Total Treasury Pool:</p>
-                    <p class="highlight"><span id="total-treasury-pool">--</span> BNB</p>
-                </div>
-                <div class="stat">
-                    <p>Total Dividends Pool:</p>
-                    <p class="highlight"><span id="total-dividends-pool">--</span> BNB</p>
-                </div>
-                <div class="stat">
-                    <p>Last Dividends Payment Time:</p>
-                    <p class="highlight"><span id="last-dividends-payment-time">--</span></p>
-                </div>
-                <div class="stat">
-                    <p>Contract Balance:</p>
-                    <p class="highlight"><span id="contract-balance">--</span> BNB</p>
-                </div>
-            </div>
+        <h1>BNB Smart Contract Interface</h1>
+        
+        <div class="section">
+            <h2>Deposit BNB</h2>
+            <input type="number" id="depositAmount" placeholder="Amount in BNB">
+            <button onclick="deposit()">Deposit</button>
         </div>
-        <div class="card">
-            <div class="card__content">
-                <h2>Estadísticas del Usuario</h2>
-                <div class="user-stat">
-                    <p>Dividendos Hoy:</p>
-                    <p class="highlight"><span id="user-dividends-today">--</span> BNB</p>
-                </div>
-                <div class="stat">
-                    <p>User Deposits:</p>
-                    <p class="highlight"><span id="user-deposits">--</span> BNB</p>
-                </div>
-                <div class="stat">
-                    <p>User Withdrawals:</p>
-                    <p class="highlight"><span id="user-withdrawals">--</span> BNB</p>
-                </div>
-                <div class="user-stat">
-                    <p>Dividendos Totales:</p>
-                    <p class="highlight"><span id="user-total-dividends">--</span> BNB</p>
-                </div>
-            </div>
+        
+        <div class="section">
+            <h2>Withdraw BNB</h2>
+            <input type="number" id="withdrawAmount" placeholder="Amount in BNB">
+            <button onclick="withdraw()">Withdraw</button>
         </div>
-        <div class="card">
-            <div class="card__content">
-                <h2>Próximo Pago de Dividendos</h2>
-                <div id="countdown-timer">--:--:--</div>
-            </div>
+        
+        <div class="section">
+            <h2>Claim Dividends</h2>
+            <button onclick="claimDividends()">Claim Dividends</button>
         </div>
-        <div class="card">
-            <div class="card__content">
-                <h2>Depositar</h2>
-                <form id="deposit-form">
-                    <input type="number" id="deposit-amount" placeholder="Cantidad de BNB a depositar" min="0.01" step="0.01" required>
-                    <button type="submit">Depositar</button>
-                </form>
-            </div>
+        
+        <div class="section">
+            <h2>User Info</h2>
+            <button onclick="getUserInfo()">Get User Info</button>
+            <p id="userInfo"></p>
         </div>
-        <div class="card">
-            <div class="card__content">
-                <h2>Retirar</h2>
-                <form id="withdraw-form">
-                    <input type="number" id="withdraw-amount" placeholder="Cantidad de BNB a retirar" min="0.01" step="0.01" required>
-                    <button type="submit">Retirar</button>
-                </form>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card__content">
-                <h2>Reclamar Dividendos</h2>
-                <button id="claim-dividends">Reclamar Dividendos</button>
-            </div>
+        
+        <div class="section">
+            <h2>Contract Stats</h2>
+            <button onclick="getContractStats()">Get Contract Stats</button>
+            <p id="contractStats"></p>
         </div>
     </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
