@@ -10,6 +10,8 @@ window.onload = async () => {
         web3 = new Web3(window.ethereum);
         await window.ethereum.enable();
         contract = new web3.eth.Contract(contractABI, contractAddress);
+        getContractStats();
+        getUserInfo(); // Automatically get user info when the page loads
     } else {
         alert("Please install MetaMask to use this dApp!");
     }
@@ -24,6 +26,8 @@ async function deposit() {
         })
         .on('receipt', (receipt) => {
             console.log('Transaction confirmed with receipt: ', receipt);
+            getContractStats();
+            getUserInfo();
         })
         .on('error', (error) => {
             console.error('Transaction failed with error: ', error);
@@ -39,10 +43,11 @@ async function withdraw() {
         })
         .on('receipt', (receipt) => {
             console.log('Transaction confirmed with receipt: ', receipt);
+            getContractStats();
+            getUserInfo();
         })
         .on('error', (error) => {
-            console.error('Transaction failed with error: ', error);
-        });
+            console.error('Transaction failed with error: ', error        });
 }
 
 async function claimDividends() {
@@ -53,6 +58,8 @@ async function claimDividends() {
         })
         .on('receipt', (receipt) => {
             console.log('Transaction confirmed with receipt: ', receipt);
+            getContractStats();
+            getUserInfo();
         })
         .on('error', (error) => {
             console.error('Transaction failed with error: ', error);
@@ -62,10 +69,17 @@ async function claimDividends() {
 async function getUserInfo() {
     const accounts = await web3.eth.getAccounts();
     const userInfo = await contract.methods.getUserInfo(accounts[0]).call();
-    document.getElementById('userInfo').innerText = `Deposit: ${web3.utils.fromWei(userInfo[0], 'ether')} BNB, Last Dividend Claim: ${new Date(userInfo[1] * 1000).toLocaleString()}`;
+    document.getElementById('userDeposit').innerText = `Deposit: ${web3.utils.fromWei(userInfo[0], 'ether')} BNB`;
+    document.getElementById('userWithdrawn').innerText = `Withdrawn: ${web3.utils.fromWei(userInfo[1], 'ether')} BNB`;
+    document.getElementById('userDividendsClaimed').innerText = `Dividends Claimed: ${web3.utils.fromWei(userInfo[2], 'ether')} BNB`;
+    document.getElementById('userLastDividendClaim').innerText = `Last Dividend Claim: ${new Date(userInfo[3] * 1000).toLocaleString()}`;
 }
 
 async function getContractStats() {
     const contractStats = await contract.methods.getContractStats().call();
-    document.getElementById('contractStats').innerText = `Total Deposited: ${web3.utils.fromWei(contractStats[0], 'ether')} BNB, Treasury Pool: ${web3.utils.fromWei(contractStats[1], 'ether')} BNB, Dividend Pool: ${web3.utils.fromWei(contractStats[2], 'ether')} BNB`;
+    document.getElementById('totalDeposited').innerText = `Total Deposited: ${web3.utils.fromWei(contractStats[0], 'ether')} BNB`;
+    document.getElementById('totalWithdrawn').innerText = `Total Withdrawn: ${web3.utils.fromWei(contractStats[1], 'ether')} BNB`;
+    document.getElementById('totalDividendsPaid').innerText = `Total Dividends Paid: ${web3.utils.fromWei(contractStats[2], 'ether')} BNB`;
+    document.getElementById('treasuryPool').innerText = `Treasury Pool: ${web3.utils.fromWei(contractStats[3], 'ether')} BNB`;
+    document.getElementById('dividendPool').innerText = `Dividend Pool: ${web3.utils.fromWei(contractStats[4], 'ether')} BNB`;
 }
